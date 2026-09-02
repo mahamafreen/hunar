@@ -31,7 +31,7 @@ export const ChatModal: React.FC<ChatModalProps> = ({
   onClose,
   language,
   recipientName,
-  recipientAvatar = 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=300',
+  recipientAvatar = '/assets/avatar-ayesha.jpg',
   onQuickOrder,
 }) => {
   const isUrdu = language === 'ur';

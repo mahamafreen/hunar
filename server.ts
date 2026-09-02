@@ -11,18 +11,12 @@ const PORT = 3000;
 
 app.use(express.json());
 
-// Initialize Gemini SDK with User-Agent header as required
 const apiKey = process.env.GEMINI_API_KEY;
 let ai: GoogleGenAI | null = null;
 
 if (apiKey) {
   ai = new GoogleGenAI({
     apiKey,
-    httpOptions: {
-      headers: {
-        'User-Agent': 'aistudio-build',
-      },
-    },
   });
 }
 

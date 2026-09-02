@@ -1,6 +1,5 @@
 {
   "name": "Hunar",
   "description": "Accessible voice-guided marketplace and ecosystem for women freelancers, home-based artisans, and micro-services in Pakistan.",
-  "requestFramePermissions": ["microphone"],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "requestFramePermissions": ["microphone"]
 }

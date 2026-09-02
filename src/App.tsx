@@ -129,7 +129,7 @@ export function App() {
           sellerId: 'seller_1',
           sellerName: 'Zainab Bibi',
           sellerNameUrdu: 'زینب بی بی',
-          sellerAvatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=300',
+          sellerAvatar: '/assets/avatar-ayesha.jpg',
           sellerCity: 'Lahore',
           sellerRating: 5.0,
           sellerIsVerified: true,

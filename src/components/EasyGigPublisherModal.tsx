@@ -58,10 +58,10 @@ export const EasyGigPublisherModal: React.FC<EasyGigPublisherModalProps> = ({
   const [deliveryDays, setDeliveryDays] = useState<number>(initialData?.deliveryDays || 3);
   const [selectedCouriers, setSelectedCouriers] = useState<('Leopard' | 'PostEx' | 'Local')[]>(['Leopard', 'PostEx']);
   const [imagePreview, setImagePreview] = useState<string>(
-    initialData?.images?.[0] || 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&q=80&w=800'
+    initialData?.images?.[0] || '/assets/gig-embroidery.jpg'
   );
   const [voiceSpokenPrompt, setVoiceSpokenPrompt] = useState('');
-  const [isGeneratingWithGemini, setIsGeneratingWithGemini] = useState(false);
+  const [isGeneratingDraft, setIsGeneratingDraft] = useState(false);
   const [isVoiceRecording, setIsVoiceRecording] = useState(false);
 
   if (!isOpen) return null;
@@ -92,7 +92,7 @@ export const EasyGigPublisherModal: React.FC<EasyGigPublisherModalProps> = ({
   };
 
   const handleGenerateFromPrompt = async (prompt: string) => {
-    setIsGeneratingWithGemini(true);
+    setIsGeneratingDraft(true);
     try {
       const res = await fetch('/api/smart-gig-generator', {
         method: 'POST',
@@ -119,7 +119,7 @@ export const EasyGigPublisherModal: React.FC<EasyGigPublisherModalProps> = ({
     } catch (err) {
       console.error('Smart generator error', err);
     } finally {
-      setIsGeneratingWithGemini(false);
+      setIsGeneratingDraft(false);
     }
   };
 
@@ -131,7 +131,7 @@ export const EasyGigPublisherModal: React.FC<EasyGigPublisherModalProps> = ({
       sellerId: currentUser?.id || 'usr_seller_guest',
       sellerName: currentUser?.name || 'Artisan Seller',
       sellerNameUrdu: currentUser?.nameUrdu || 'خاتون ہنرمند',
-      sellerAvatar: currentUser?.avatar || 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=300',
+      sellerAvatar: currentUser?.avatar || '/assets/avatar-ayesha.jpg',
       sellerCity: currentUser?.city || 'Lahore',
       sellerRating: 5.0,
       sellerIsVerified: currentUser?.isVerified || true,
@@ -232,7 +232,7 @@ export const EasyGigPublisherModal: React.FC<EasyGigPublisherModalProps> = ({
                 <Mic className="w-4 h-4 text-emerald-700" />
                 {isUrdu ? 'مائیک دبائیں اور بتائیں آپ کیا بیچنا چاہتی ہیں:' : 'Tap mic and describe what you want to sell:'}
               </span>
-              {isGeneratingWithGemini && (
+              {isGeneratingDraft && (
                 <span className="text-xs font-bold text-emerald-700">
                   {isUrdu ? 'تیار ہو رہا ہے...' : 'Generating gig...'}
                 </span>

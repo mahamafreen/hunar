@@ -48,7 +48,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
       nameUrdu: isUrdu ? 'عائشہ بی بی' : name,
       email: email,
       phone: phone,
-      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=300',
+      avatar: '/assets/avatar-ayesha.jpg',
       role: 'seller',
       city: city,
       isVerified: false,
